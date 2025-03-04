@@ -1,3 +1,9 @@
+from django.views.decorators.csrf import csrf_exempt
+from genres.models import Genre
 from django.contrib import admin
 
-# Register your models here.
+class GenreAdmin(admin.ModelAdmin):
+    list_display = ['name',]
+    search_fields = ['name',]
+
+admin.site.register(Genre, GenreAdmin)
